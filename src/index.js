@@ -1,13 +1,13 @@
 import P5 from 'p5/lib/p5';
-import Sketch from './sketch';
+import Sketch from './Sketch';
 
-function init(sk) {
-    const sketch = new Sketch();
-    sk.preload = sketch.preload;
-    sk.setup = sketch.setup;
-    sk.draw = sketch.draw;
-    sk.mousePressed = sketch.mousePressed;
-    window.sk = sk;
+new P5(init(new Sketch()));
+
+
+function init(sketch) {
+    return (sk) => {
+        let methods = Object.getOwnPropertyNames(Object.getPrototypeOf(sketch)).filter(method => method !== 'constructor');
+        methods.forEach(method => sk[method] = sketch[method]);
+        window.sk = sk;
+    };
 }
-
-new P5(init);

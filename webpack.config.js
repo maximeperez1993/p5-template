@@ -10,7 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     optimization: {
-        minimize: false, // I need this to copy prod into openprocessing
+        minimize: false, // Need this to copy readable prod code into openprocessing IDE
         runtimeChunk: 'single',
         splitChunks: getSplitChunks(),
     },
