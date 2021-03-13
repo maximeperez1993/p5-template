@@ -16,7 +16,6 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({title: 'TOREPLACE'}),
-        new webpack.HashedModuleIdsPlugin(),
         new CleanWebpackPlugin()
     ],
     devServer: getDevServer()
